@@ -12,8 +12,11 @@
   <div class="bg-contact100">
     <div class="container-contact100">
       <div class="wrap-contact100">
-        <span class="contact100-form-title">
+        <span class="contact100-form-title" th:if="${verdade}">
           Dados validados com sucesso
+        </span>
+        <span class="contact100-form-title" th:unless="${verdade}">
+          Dados não validados com sucesso
         </span>
       </div>
     </div>
