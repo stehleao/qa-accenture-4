@@ -10,6 +10,7 @@ import com.validador.cpf.validadorCpf.models.Cliente;
 class ValidadorCpfApplicationTests {
 
 	@Test
+	//@DisplayName("Caso de teste para CPF válido")
 	void fazendoTesteDeCpfValido() {
 		Cliente cliente = new Cliente();
 		cliente.setNome("Danilo");
@@ -79,5 +80,21 @@ class ValidadorCpfApplicationTests {
 		cliente.setNome("Danilo");
 		cliente.setCpf("946.220. 360-10");
 		assertEquals(true, cliente.validarCPF());
+	}
+
+	@Test
+	void fazendoTesteDeCpfComLetra() {
+		Cliente cliente = new Cliente();
+		cliente.setNome("Danilo");
+		cliente.setCpf("69b.969.790-88");
+		assertEquals(false, cliente.validarCPF());
+	}
+
+	@Test
+	void fazendoTesteDeCpfVazio() {
+		Cliente cliente = new Cliente();
+		cliente.setNome("Danilo");
+		cliente.setCpf("");
+		assertEquals(false, cliente.validarCPF());
 	}
 }
